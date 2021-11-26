@@ -1,0 +1,18 @@
+{%extends 'all-gallery/base.html'%}
+{% block content %} 
+{{ block.super}}
+<div class="welcome">
+    <div class="holder pt-5">
+        <h1>Compel the audience. Capture the moment. Light with purpose</h1>
+          <form role="form ">
+            <div class="form-group">
+                <input type="text" class="form-control mt-5 " placeholder="&#xF002; Search image in category" style="font-family:Arial, FontAwesome"  name="img_cat" >
+            </div>
+          </form>
+          <button class="btn btn-warning explore">EXPLORE GALLERY</button>
+    </div>  
+</div>
+<div class="container">
+    <h1 class="text-center text-info">Welcome</h1>
+</div>
+{% endblock %}
