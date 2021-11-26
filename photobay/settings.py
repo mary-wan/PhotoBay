@@ -39,7 +39,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'gallery.apps.GalleryConfig',
-    'bootstrap5'
+    'bootstrap5',
+    'cloudinary',
 ]
 
 MIDDLEWARE = [
@@ -128,3 +129,10 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, "static"),
 ]
+CLOUDINARY_STORAGE = {
+    'CLOUD_NAME': 'dzhxp777b',
+    'API_KEY': '939366662997374',
+    'API_SECRET': 'NyVFQzHFPKnSIEYqKPbmu9FSwms',
+}
+
+DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'

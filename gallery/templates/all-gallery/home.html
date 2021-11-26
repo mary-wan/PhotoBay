@@ -1,18 +1,31 @@
 {%extends 'all-gallery/base.html'%}
-{% block content %} 
+{% block content %}
 {{ block.super}}
-<div class="welcome">
-    <div class="holder pt-5">
-        <h1>Compel the audience. Capture the moment. Light with purpose</h1>
-          <form role="form ">
+<div class="welcome mt-5">
+    <div class="holder">
+        <h2>Compel the audience. Capture the moment. Light with purpose</h2>
+        <form role="form" class="pt-3">
             <div class="form-group">
-                <input type="text" class="form-control mt-5 " placeholder="&#xF002; Search image in category" style="font-family:Arial, FontAwesome"  name="img_cat" >
+                <input type="text" class="form-control mt-5 " placeholder="&#xF002; Search image in category"
+                    style="font-family:Arial, FontAwesome" name="img_cat">
             </div>
-          </form>
-          <button class="btn btn-warning explore">EXPLORE GALLERY</button>
-    </div>  
+        </form>
+        <button class="btn btn-warning explore">EXPLORE GALLERY</button>
+    </div>
 </div>
-<div class="container">
-    <h1 class="text-center text-info">Welcome</h1>
+<div class="container mt-5">
+    <div class="card-columns p-3">
+        {%for photo in images%}
+        <div class="col-md-4">
+        <div class="card" style="width: 18rem"; data-toggle="modal" data-target="#{{photo.id}}">
+            <img src="{{photo.image.url}}" alt="{{photo.name}}" class="card-img">
+        </div>
+    </div>
+
+        <!-- <img src="{{photo.image.url}}" alt="pss" height=200> <br> -->
+
+        {%endfor%}
+    </div>
 </div>
+
 {% endblock %}

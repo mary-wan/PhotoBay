@@ -5,5 +5,5 @@ def index(request):
     images=Image.objects.all()
     locations = Location.all_locations()
     
-    return render(request,'all-gallery/home.html')
+    return render(request,'all-gallery/home.html',{'images': images, 'locations': locations})
 
