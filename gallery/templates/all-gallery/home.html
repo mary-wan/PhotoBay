@@ -1,7 +1,7 @@
 {%extends 'all-gallery/base.html'%}
 {% block content %}
 {{ block.super}}
-<div class="welcome mt-5">
+<div class="welcome">
     <div class="holder">
         <h2>Compel the audience. Capture the moment. Light with purpose</h2>
         <form role="form" class="pt-3">
@@ -14,16 +14,40 @@
     </div>
 </div>
 <div class="container mt-5">
+
     <div class="card-columns p-3">
         {%for photo in images%}
         <div class="col-md-4">
-        <div class="card" style="width: 18rem"; data-toggle="modal" data-target="#{{photo.id}}">
-            <img src="{{photo.image.url}}" alt="{{photo.name}}" class="card-img">
+            <div class="card" style="width: 18rem"; data-toggle="modal" data-target="#{{photo.id}}">
+                <img src="{{photo.image.url}}" alt="{{photo.name}}" class="card-img copy">
+            </div>
         </div>
-    </div>
-
-        <!-- <img src="{{photo.image.url}}" alt="pss" height=200> <br> -->
-
+        <div class="modal fade" id="{{photo.id}}" tabindex="-1" role="dialog"
+                 aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered modal-md" role="document">
+                    <div class="modal-content modalcard">
+                        <div class="modal-header">
+                            <small class="modal-title" id="imageheader">{{photo.name}}  | {{photo.location}}</small>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <img src="{{photo.image.url}}" alt="{{photo.name}}" class="img-fluid">
+                            <p class="text-center mt-1">{{photo.description}}</p>
+                            
+                        </div>
+                        <div class="modal-footer">
+                            <input class="form-control mr-2 link" type="text" value="{{photo.image.url}}" id="{{photo.id}}.url">
+                            <!-- <span style="font-size: 1.5em;font-family:Arial, FontAwesome" class="copy"><i class="fas fa-copy" onclick="copypath('{{photo.id}}.url')"></i></span> -->
+                            <!-- <span style="font-size: 1.5em;  color:red;font-family:Arial, FontAwesome"><i class="fas fa-window-close" data-dismiss="modal"></i></span> -->
+                            <button class="btn btn-success btn-sm link" onclick="copypath('{{photo.id}}.url')">Copy</button>
+                            <!-- <button type="button" class="btn btn-outline-danger btn-sm" data-dismiss="modal">Close -->
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
         {%endfor%}
     </div>
 </div>
