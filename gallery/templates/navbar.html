@@ -1,7 +1,7 @@
 {% load static%}
 <nav class="navbar navbar-light navbar-expand-lg sticky-top bg-light">
     <div class="container-fluid">
-        <a class="navbar-brand" href="/"><img src="{% static 'photos/logo1.jpeg' %}"  alt= "" class="logo">MarvelGallery </a>
+        <a class="navbar-brand" href="/"><img src="{% static 'photos/logo.jpg' %}"  alt= "" class="logo">MarvelGallery </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
@@ -10,17 +10,17 @@
               <li class="nav-item active">
                 <a class="nav-link" href="/">HOME</a>
               </li>
-              <!-- <li class="nav-item">
+              <li class="nav-item">
                 <a class="nav-link" href="/#category">CATEGORY</a>
-              </li> -->
+              </li>
               <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                   LOCATION
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                  <a class="dropdown-item" href="#">Africa</a>
-                  <a class="dropdown-item" href="#">Usa</a>
-                  <a class="dropdown-item" href="#">Paris</a>
+                  {% for location in locations %}
+                  <a class="dropdown-item" href="/location/{{location.name}}">{{location.name}}</a>
+                  {% endfor %}
                 </div>
               </li>
               <li class="nav-item">

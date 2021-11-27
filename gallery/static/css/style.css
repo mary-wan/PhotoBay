@@ -5,7 +5,7 @@ body{
 }
 
 .welcome{
-    background-image: url(/static/photos/bg5.jpeg);
+    background-image: url(/static/photos/bg1.jpg);
     background-repeat: no-repeat;
     background-size: auto 100%;
     /* background-attachment: fixed; */
@@ -23,7 +23,7 @@ body{
     padding: 8% 5px 2px 5px;
 }
 .welcom{
-    background-image: url(/static/photos/bg5.jpeg);
+    background-image: url(/static/photos/bg1.jpg);
     background-repeat: no-repeat;
     background-size: auto 100%;
     /* background-attachment: fixed; */
@@ -88,7 +88,8 @@ body{
     font-weight: 900;
 }
 /* .modal-content {
-    background-color: rgb(0,0,0,0.9) !important;;
+    background-color: rgb(0,0,0,0.9) !important;
+    color: white;
 } */
 .gallery img{
     width: 100%;
