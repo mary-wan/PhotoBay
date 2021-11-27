@@ -10,24 +10,28 @@
                     style="font-family:Arial, FontAwesome" name="img_cat">
             </div>
         </form>
-        <button class="btn btn-warning explore">EXPLORE GALLERY</button>
+        <a href="#gallery" class="btn btn-warning explore">EXPLORE GALLERY</a>
     </div>
 </div>
 <div class="container mt-5">
 
-    <div class="card-columns p-3">
+    <div class="row gallery p-3" id="gallery">
         {%for photo in images%}
-        <div class="col-md-4">
+        <div class="col-sm-8 col-lg-3 mb-3 imgdisplay"  data-toggle="modal" data-target="#{{photo.id}}">
+            <img src="{{photo.image.url}}" alt=" " class="card-img photo" height="200">
+            <small id="photoDesc">{{photo.name}}</small>
+        </div>
+        <!-- <div class="col-md-4">
             <div class="card" style="width: 18rem"; data-toggle="modal" data-target="#{{photo.id}}">
                 <img src="{{photo.image.url}}" alt="{{photo.name}}" class="card-img copy">
             </div>
-        </div>
+        </div> -->
         <div class="modal fade" id="{{photo.id}}" tabindex="-1" role="dialog"
                  aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
                 <div class="modal-dialog modal-dialog-centered modal-md" role="document">
                     <div class="modal-content modalcard">
                         <div class="modal-header">
-                            <small class="modal-title" id="imageheader">{{photo.name}}  | {{photo.location}}</small>
+                            <h6 class="modal-title" id="imageheader">{{photo.name}}  | {{photo.location}}</h6>
                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                 <span aria-hidden="true">&times;</span>
                             </button>
@@ -38,10 +42,10 @@
                             
                         </div>
                         <div class="modal-footer">
-                            <input class="form-control mr-2 link" type="text" value="{{photo.image.url}}" id="{{photo.id}}.url">
-                            <!-- <span style="font-size: 1.5em;font-family:Arial, FontAwesome" class="copy"><i class="fas fa-copy" onclick="copypath('{{photo.id}}.url')"></i></span> -->
-                            <!-- <span style="font-size: 1.5em;  color:red;font-family:Arial, FontAwesome"><i class="fas fa-window-close" data-dismiss="modal"></i></span> -->
-                            <button class="btn btn-success btn-sm link" onclick="copypath('{{photo.id}}.url')">Copy</button>
+                            <input class="form-control mr-2" type="text" value="{{photo.image.url}}" id="{{photo.id}}.url">
+                            <button class="btn btn-success btn-sm" onclick="copypath('{{photo.id}}.url')">Copy</button>
+                            <!-- <button class="btn btn-success btn-sm link" id="lol" onclick="download('{{photo.id}}.url')">download</button> -->
+                            <!-- <a src="{{photo.image.url}}" id="lol" download><i class="fa fa-download" aria-hidden="true" id="cl"></i></a> -->
                             <!-- <button type="button" class="btn btn-outline-danger btn-sm" data-dismiss="modal">Close -->
                             </button>
                         </div>
