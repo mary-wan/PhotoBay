@@ -1,9 +1,10 @@
 {%extends 'all-gallery/base.html'%}
+{% load static%}
 {% block content %}
 {{ block.super}}
-<div class="welcome">
-    <div class="holder">
-        <h2 id="category">Compel the audience. Capture the moment. Light with purpose</h2>
+<div class="welcom">
+    <div class="holde">
+        <h2>Found {{ images|length }} of searched category {{message}}</h2>
         <form role="form" class="pt-3" action="/search">
             <div class="form-group">
                 <input type="text" class="form-control mt-5 " placeholder="&#xF002; Search image in category"
@@ -14,6 +15,8 @@
     </div>
 </div>
 <div class="container mt-5">
+
+    {% if images%}
 
     <div class="row gallery p-3" id="gallery">
         {%for photo in images%}
@@ -54,6 +57,19 @@
             </div>
         {%endfor%}
     </div>
+    {% else %}
+    <div class="row">
+        <div class="col-md-4">
+            <img src="{%static 'photos/found.jpeg'%}" alt="">
+        </div>
+        <div class="col-md-6 pt-4">
+            <h3>No images in this category yet, check for updates later.</h3>
+        </div>
+    </div>
+       
+        
+    
+    {% endif %}
 </div>
 
-{% endblock %}
+{%endblock%}

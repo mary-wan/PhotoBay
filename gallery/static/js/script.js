@@ -5,11 +5,10 @@ function copypath(id) {
     navigator.clipboard.writeText(path.value);
     alert("Copied path: " + path.value);
   }
-//   $(document).ready(function () {
-//     $("imgdisplay").mouseover(function () {
-//         $("#photoDesc").show();
-//     });
-//     $(".imgdisplay").mouseout(function () {
-//         $("#photoDesc").hide();
-//     });
-//   });
+
+const navLinks = document.querySelectorAll('.nav-item')
+const menuToggle = document.getElementById('navbarNavDropdown')
+const bsCollapse = new bootstrap.Collapse(menuToggle, {toggle:false})
+navLinks.forEach((l) => {
+      l.addEventListener('click', () => { bsCollapse.toggle() })
+  })

@@ -22,6 +22,24 @@ body{
     margin: 0% !important;
     padding: 8% 5px 2px 5px;
 }
+.welcom{
+    background-image: url(/static/photos/bg5.jpeg);
+    background-repeat: no-repeat;
+    background-size: auto 100%;
+    /* background-attachment: fixed; */
+    background-position: center;
+    background-size: cover;
+    height: 300px;
+    color: white;
+    text-align: center;
+    
+}
+.holde{
+    background-color:rgb(0,0,0,0.6) !important;
+    height: 300px;
+    margin: 0% !important;
+    padding: 4% 5px 2px 5px;
+}
 .navbar{
     background-color: white !important;
     padding-right: 2%;
@@ -84,7 +102,11 @@ body{
     .nav-item{
         padding-left: 50px;
     }
-    .welcome input{
+    .welcome input {
+        margin-left: 23%;
+        width: 55% !important;
+    }
+    .welcom input{
         margin-left: 23%;
         width: 55% !important;
     }
