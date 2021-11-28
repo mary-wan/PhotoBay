@@ -20,11 +20,11 @@ class CategoryTestClass(TestCase):
         search_category = Category.objects.all()
         self.assertTrue(len(search_category) == 0)
 
-    # def test_update(self):
-    #     category = Category.get_category_id(self.cat.id)
-    #     category.update_category('food')
-    #     category = Category.get_category_id(self.cat.id)
-    #     self.assertTrue(category.name == 'food')
+    def test_update_location(self):
+        changed_category = 'Food'
+        self.category.update_category(self.category.id, changed_category)
+        changed_category = Category.objects.filter(name='Food')
+        self.assertTrue(len(changed_category) == 1)
     
     
 class LocationTestCLass(TestCase):
@@ -47,12 +47,11 @@ class LocationTestCLass(TestCase):
         location = Location.objects.all()
         self.assertTrue(len(location) == 0)
 
-    # def test_update(self):
-    #     location = Location.get_location_id(self.location.id)
-    #     location.update_location('Donholm')
-    #     location = Location.get_location_id(self.location.id)
-    #     self.assertTrue(location.name == 'Donholm')
-
+    def test_update_location(self):
+        changed_location = 'Africa'
+        self.location.update_location(self.location.id, changed_location)
+        changed_location = Location.objects.filter(name='Africa')
+        self.assertTrue(len(changed_location) == 1)
 
 class ImageTestClass(TestCase):
 
@@ -63,7 +62,7 @@ class ImageTestClass(TestCase):
         self.category = Category(name="travel")
         self.category.save_category()
 
-        self.image = Image(id=1,name='image test', description='my test',category=self.category,location=self.location)
+        self.image = Image(name='image test', description='my test',category=self.category,location=self.location)
         self.image.save_image()
 
     def test_instance(self):
@@ -85,11 +84,6 @@ class ImageTestClass(TestCase):
         image = Image.objects.filter(id=self.image.id)
         self.assertTrue(searched_image, image)
         
-    
-    def test_search_image_by_location(self):
-        self.image.save_image()
-        searched_images = self.image.filter_by_location('Paris')
-        self.assertTrue(len(searched_images) == 1)
         
     def test_search_image_by_category(self):
         self.image.save_image()
@@ -97,23 +91,19 @@ class ImageTestClass(TestCase):
         self.assertTrue(len(searched_images) >= 1)
 
         
-    # def test_delete_image(self):
-    #     self.image.save_image()
-    #     self.image.delete_image()
-    #     images = Image.objects.all()
-    #     self.assertTrue(len(images) == 0)
+    def test_delete_image(self):
+        self.image.save_image()
+        self.image.delete_image()
+        images = Image.objects.all()
+        self.assertTrue(len(images) == 0)
 
+    def test_update_image(self):
+        self.image.save_image()
+        self.image.update_image(self.image.id, 'pizza.jpg','testing change','testing','food','Africa')
+        updated_image=Image.objects.filter(image='nature.png')
+        self.assertTrue(len(updated_image) ==1)
 
-    # def test_update_image(self):
-    #     self.image.save_image()
-    #     self.image.update_image(self.image.id, 'photos/test.jpg','testing change','testing','food','Africa')
-    #     changed_img = Image.objects.filter(image='photos/test.jpg')
-    #     self.assertTrue(len(changed_img) > 0)
-
-
-    # def test_update_image(self):
-    #     self.image.save_image()
-    #     image = Image.update_image( self.image.id, 'test update', 'my test',self.location, self.cat)
-    #     upimage = Image.objects.filter(id = self.image.id)
-    #     print(upimage)
-    #     self.assertTrue(Image.name == 'test update')
+    def test_search_image_by_location(self):
+        self.image.save_image()
+        searched_images = self.image.filter_by_location('Paris')
+        self.assertTrue(len(searched_images) == 1)
