@@ -8,6 +8,12 @@ class Location(models.Model):
 
     def delete_location(self):
         self.delete()
+    
+    @classmethod
+    def all_locations(cls):
+        locations = Location.objects.all()
+        return locations
+
         
     def update_location(cls, id, name):
         cls.objects.filter(id=id).update(name=name)
@@ -63,9 +69,6 @@ class Image(models.Model):
     def filter_by_location(cls,search_location):
         location = cls.objects.filter(location__name=search_location).all()
         return location
-    
-    def __str__(self):
-        return self.name
     
 
     
