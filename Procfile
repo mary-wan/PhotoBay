@@ -1,1 +1,1 @@
-web: gunicorn tribune.wsgi --log-file -
+web: gunicorn phot0bay.wsgi --log-file -
