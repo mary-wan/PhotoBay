@@ -10,7 +10,7 @@
 
 ****
 ## Description
-Application that allows users to use their one last minute wisely. The users will submit their one minute pitches and other users will vote on them and leave comments to give their feedback on them.
+PhotoBay is a personal gallery application where you can display your photos for others to see.
 
 ## Site image
 ![Site Image](gallery/static/photos/site.png)
