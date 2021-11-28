@@ -1,1 +1,1 @@
-web: gunicorn phot0bay.wsgi --log-file -
+web: gunicorn gallery.wsgi --log-file -
