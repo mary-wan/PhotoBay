@@ -4,14 +4,7 @@
 {{ block.super}}
 <div class="welcom">
     <div class="holde">
-        <h2>Found {{ images|length }} of searched category {{message}}</h2>
-        <form role="form" class="pt-3" action="/search">
-            <div class="form-group">
-                <input type="text" class="form-control mt-5 " placeholder="&#xF002; Search image in category"
-                    style="font-family:Arial, FontAwesome" name="category">
-            </div>
-        </form>
-       
+        <h2>Images from {{message}}</h2>
     </div>
 </div>
 <div class="container mt-5">

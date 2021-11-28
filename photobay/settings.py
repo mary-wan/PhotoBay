@@ -25,7 +25,7 @@ SECRET_KEY = '_$7c=_1&n=6^+hb!aopq_wt+it%w=i94v47s#lssu3cz-b!s$0'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['.localhost', '.herokuapp.com', '.127.0.0.1']
 
 DEFAULT_AUTO_FIELD = 'django.db.models.AutoField'
 
@@ -129,6 +129,10 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, "static"),
 ]
+
+MEDIA_URL = '/images/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
 CLOUDINARY_STORAGE = {
     'CLOUD_NAME': 'dzhxp777b',
     'API_KEY': '939366662997374',

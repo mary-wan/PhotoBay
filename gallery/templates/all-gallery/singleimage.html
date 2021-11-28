@@ -2,23 +2,12 @@
 {% load static%}
 {% block content %}
 {{ block.super}}
-<div class="welcome">
-    <div class="holder">
-        <h2>Found {{ images|length }} of searched category {{message}}</h2>
-        <form role="form" class="pt-3" action="/search">
-            <div class="form-group">
-                <input type="text" class="form-control mt-5 " placeholder="&#xF002; Search image in category"
-                    style="font-family:Arial, FontAwesome" name="category">
-            </div>
-        </form>
+<div class="welcom">
+    <div class="holde">
+        <h2>Image found</h2>
     </div>
 </div>
-<div class="container mt-5">
-
-    {% if images%}
-
-    <div class="row gallery p-3" id="gallery">
-        {%for photo in images%}
+    <div class="container mt-5">
         <div class="col-sm-8 col-lg-3 mb-3 imgdisplay"  data-toggle="modal" data-target="#{{photo.id}}">
             <img src="{{photo.image.url}}" alt=" " class="card-img photo" height="200">
             <small id="photoDesc">{{photo.name}}</small>
@@ -54,21 +43,6 @@
                     </div>
                 </div>
             </div>
-        {%endfor%}
-    </div>
-    {% else %}
-    <div class="row">
-        <div class="col-md-4">
-            <img src="{%static 'photos/found.jpeg'%}" alt="">
-        </div>
-        <div class="col-md-6 pt-4">
-            <h3>No images in this category yet, check for updates later.</h3>
-        </div>
-    </div>
-       
         
-    
-    {% endif %}
-</div>
-
+    </div>
 {%endblock%}
