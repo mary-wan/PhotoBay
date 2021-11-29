@@ -20,17 +20,17 @@ class CategoryTestClass(TestCase):
         search_category = Category.objects.all()
         self.assertTrue(len(search_category) == 0)
 
-    # def test_update_category(self):
-    #     changed_category = 'Food'
-    #     self.category.update_category(self.category.id, changed_category)
-    #     changed_category = Category.objects.filter(name='Food')
-    #     self.assertTrue(len(changed_category) == 1)
+    def test_update_category(self):
+        changed_location = 'Food'
+        self.category.update_category(self.category.id, changed_location)
+        changed_location = Category.objects.filter(name='Food')
+        self.assertTrue(len(changed_location) == 1)
     
     
 class LocationTestCLass(TestCase):
   
     def setUp(self):
-        self.location = Location(id=1,name="Paris")
+        self.location = Location(name="Paris")
         self.location.save_location()
 
     def test_instance(self):
@@ -46,11 +46,12 @@ class LocationTestCLass(TestCase):
         self.location.delete_location()
         location = Location.objects.all()
         self.assertTrue(len(location) == 0)
-
-    # def test_update_location(self):
-    #     new_lock = Location.get_location_id(self.location.id)
-    #     new_lock=Location.update_location('USA')
-    #     self.assertTrue(new_lock.name == 'USA')
+        
+    def test_update_location(self):
+        changed_location = 'USA'
+        self.location.update_location(self.location.id, changed_location)
+        changed_location = Location.objects.filter(name='USA')
+        self.assertTrue(len(changed_location) == 1)
 
 class ImageTestClass(TestCase):
 
@@ -97,13 +98,12 @@ class ImageTestClass(TestCase):
 
         
     # def test_delete_image(self):
-    #     # self.image.save_image()
+    #     self.image.save_image()
     #     self.image.delete_image()
-    #     # images = Image.objects.all()
     #     self.assertTrue(len(Image.objects.all()) == 0)
 
-    def test_update_image(self):
-        self.image.save_image()
-        self.image.update_image(self.image.id,'pizza.jpg','testing change','2021-11-28','testing','food','Africa')
-        updated_image=Image.objects.filter(image='pizza.jpg')
-        self.assertTrue(len(updated_image) ==1)
+    # def test_update_image(self):
+    #     self.image.save_image()
+    #     self.image.update_image('pizza.jpg','testing change','2021-11-28','testing','food','Africa')
+    #     updated_image=Image.objects.filter(image='pizza.jpg')
+    #     self.assertTrue(len(updated_image) ==1)
