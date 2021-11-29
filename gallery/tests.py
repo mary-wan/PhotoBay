@@ -79,7 +79,7 @@ class ImageTestClass(TestCase):
         self.assertTrue(len(images)>0)
         
     def test_delete_image(self):
-        my_image = Image.get_image_by_id(self.image.id)
+        my_image = Image.objects.filter(name='image test')
         my_image.delete()
         self.assertTrue(len(Image.objects.all()) == 0)
         
