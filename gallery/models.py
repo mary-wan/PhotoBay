@@ -17,6 +17,16 @@ class Location(models.Model):
         
     def update_location(cls, id, name):
         cls.objects.filter(id=id).update(name=name)
+    
+    # def update_location(cls, id, name):
+    #    new_location= Location.objects.get(pk = id)
+    #    new_location = cls.objects.filter(id=id).update(name=name)
+    #    return new_location
+    
+    @classmethod
+    def get_location_id(cls, id):
+        locate = Location.objects.get(pk = id)
+        return locate
         
     
     def __str__(self):
