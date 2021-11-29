@@ -18,13 +18,7 @@ class Location(models.Model):
     def update_location(cls, id, name):
         cls.objects.filter(id=id).update(name=name)
     
-    # def update_location(cls, id, name):
-    #    new_location= Location.objects.get(pk = id)
-    #    new_location = cls.objects.filter(id=id).update(name=name)
-    #    return new_location
-    
-        
-    
+  
     def __str__(self):
         return self.name
     
@@ -59,9 +53,8 @@ class Image(models.Model):
         self.delete()
         
     @classmethod
-    def update_image(cls, id ,image, description , name,category,location):
-        image=cls.objects.filter(id = id).update(id=id,image=image,description=description,name=name,category=category,location=location)
-        return image
+    def update_image(cls, id ,image):
+        cls.objects.filter(id = id).update(image=image)
         
     @classmethod
     def get_image_by_id(cls,id):

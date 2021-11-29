@@ -42,7 +42,6 @@ class LocationTestCLass(TestCase):
         self.assertTrue(len(locations) > 0)
 
     def test_delete_location(self):
-        self.location.save_location()
         self.location.delete_location()
         location = Location.objects.all()
         self.assertTrue(len(location) == 0)
@@ -62,22 +61,27 @@ class ImageTestClass(TestCase):
         self.category = Category(name="travel")
         self.category.save_category()
 
-        self.image = Image(id=1,name='image test', description='my test',category=self.category,location=self.location)
+        self.image = Image(image='mountain.png',name='image test', description='my test',category=self.category,location=self.location)
         self.image.save_image()
 
     def test_instance(self):
         self.assertTrue(isinstance(self.image, Image))
 
     def tearDown(self):
-        self.image.delete_image()
-        self.category.delete_category()
         self.location.delete_location()
+        self.category.delete_category()
+        self.image.delete_image()
+        
 
-
-    def test_save_method(self):
+    def test_save_image(self):
         self.image.save_image()
         images  = Image.objects.all()
         self.assertTrue(len(images)>0)
+        
+    def test_delete_image(self):
+        my_image = Image.get_image_by_id(self.image.id)
+        my_image.delete()
+        self.assertTrue(len(Image.objects.all()) == 0)
         
     def test_get_image_by_id(self):
         searched_image = self.image.get_image_by_id(self.image.id)
@@ -86,24 +90,22 @@ class ImageTestClass(TestCase):
         
         
     def test_search_image_by_category(self):
-        self.image.save_image()
         searched_images = self.image.search_image('travel')
         self.assertTrue(len(searched_images) >= 1)
     
     
-    def test_search_image_by_location(self):
-        self.image.save_image()
+    def test_search_by_location(self):
         searched_images = self.image.filter_by_location('Paris')
         self.assertTrue(len(searched_images) == 1)
+    
+    def test_update_image(self):
+        changed_image ='bacon.png'
+        self.image.update_image(self.image.id,changed_image)
+        changed_image = Image.objects.filter(image='bacon.png')
+        self.assertTrue(len(changed_image) ==1)
 
         
-    # def test_delete_image(self):
-    #     self.image.save_image()
-    #     self.image.delete_image()
-    #     self.assertTrue(len(Image.objects.all()) == 0)
+   
 
-    # def test_update_image(self):
-    #     self.image.save_image()
-    #     self.image.update_image('pizza.jpg','testing change','2021-11-28','testing','food','Africa')
-    #     updated_image=Image.objects.filter(image='pizza.jpg')
-    #     self.assertTrue(len(updated_image) ==1)
+ 
+       
