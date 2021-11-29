@@ -12,3 +12,18 @@ const bsCollapse = new bootstrap.Collapse(menuToggle, {toggle:false})
 navLinks.forEach((l) => {
       l.addEventListener('click', () => { bsCollapse.toggle() })
   })
+
+  // let btnDownload = document.getElementById('cl');
+  // let img = document.getElementById('lol');
+
+
+  // btnDownload.addEventListener('click', () => {
+  //     let imagePath = img.getAttribute('src');
+  //     let fileName = getFileName(imagePath);
+  //     saveAs(imagePath, fileName);
+  //     imagePath
+  // });
+
+  // function getFileName(str) {
+  //     return str.substring(str.lastIndexOf('/') + 1)
+  // }
