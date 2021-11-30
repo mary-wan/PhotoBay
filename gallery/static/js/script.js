@@ -13,12 +13,11 @@ navLinks.forEach((l) => {
       l.addEventListener('click', () => { bsCollapse.toggle() })
   })
 
-// function download(id) {
-//     var imagePath = document.getElementById(id);
-//     alert("yqq")
-//     let fileName = getFileName(imagePath);
-//     saveAs(imagePath, fileName);
-//   }
+function download(id) {
+    var imagePath = document.getElementById(id).value;
+    let fileName = getFileName(imagePath);
+    saveAs(imagePath, fileName);
+}
 
   // let btnDownload = document.getElementById('cl');
   // let img = document.getElementById('lol');
@@ -31,6 +30,6 @@ navLinks.forEach((l) => {
   //     imagePath
   // });
 
-  // function getFileName(str) {
-  //     return str.substring(str.lastIndexOf('/') + 1)
-  // }
+  function getFileName(str) {
+      return str.substring(str.lastIndexOf('/') + 1)
+  }

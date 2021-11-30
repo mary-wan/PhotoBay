@@ -58,26 +58,5 @@
         {%endfor%}
     </div>
 </div>
-<script type="text/javascript">
-    function download(id) {
-        var imagePath = document.getElementById(id).value;
-        let fileName = getFileName(imagePath);
-        saveAs(imagePath, fileName);
-  }
-    // let btnDownload = document.getElementById('cl');
-    // let img = document.getElementById('lol')
 
-
-    // btnDownload.addEventListener('click', () => {
-    //     let imagePath = img.getAttribute('src');
-    //     alert(imagePath)
-    //     let fileName = getFileName(imagePath);
-    //     saveAs(imagePath, fileName);
-    //     imagePath
-    // });
-
-    function getFileName(str) {
-        return str.substring(str.lastIndexOf('/') + 1)
-    }
-</script>
 {% endblock %}
